@@ -6,7 +6,7 @@
 /*   By: ykot <ykot@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 13:22:20 by ykot              #+#    #+#             */
-/*   Updated: 2022/07/14 15:56:19 by ykot             ###   ########.fr       */
+/*   Updated: 2022/07/16 17:14:10 by ykot             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,15 @@
 
 int	main(int argc, char **argv)
 {
-	t_farm	map;
+	t_farm	farm;
 
-	ft_bzero(&map, sizeof(map));
-	read_arg(argc, argv, &map);
-
+	if (argc != 1)
+		error(&farm);
+	(void *)argv;
+	ft_bzero(&farm, sizeof(farm));
+	read_input(&farm);
+	/* algo */
+	print_farm(farm);
+	free_farm(&farm);
 	return (0);
 }
