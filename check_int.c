@@ -6,7 +6,7 @@
 /*   By: ykot <ykot@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:17:15 by ykot              #+#    #+#             */
-/*   Updated: 2022/07/15 23:15:57 by ykot             ###   ########.fr       */
+/*   Updated: 2022/07/16 19:48:03 by ykot             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	check_int(const char *str)
 {
-	int		i;
+	size_t	i;
 	size_t	len;
 
 	if (str == NULL)
@@ -22,9 +22,12 @@ int	check_int(const char *str)
 	len = ft_strlen(str);
 	if (len > 11 || (str[0] != '-' && len > 10))
 		return (0);
-	else if (len == 11 && str[0] == '-' && ++str)
+	else if (len == 11 && str[0] == '-')
+	{
+		str++;
 		if (ft_strcmp(str, "2147483648") > 0)
 			return (0);
+	}
 	else if (len == 10 && ft_strcmp(str, "2147483647") > 0)
 		return (0);
 	i = -1;

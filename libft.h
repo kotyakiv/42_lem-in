@@ -6,7 +6,7 @@
 /*   By: ykot <ykot@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 20:10:34 by ykot              #+#    #+#             */
-/*   Updated: 2022/07/14 13:17:51 by ykot             ###   ########.fr       */
+/*   Updated: 2022/07/16 14:28:46 by ykot             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,6 @@ void		ft_putstr(char const *s);
 void		ft_putendl(char const *s);
 void		ft_putnbr(int n);
 void		ft_putllnbr(long long n);
-int			ft_printf(const char *str, ...);
 
 /*
 ** Other
