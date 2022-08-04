@@ -6,12 +6,12 @@
 /*   By: ykot <ykot@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 17:40:39 by ykot              #+#    #+#             */
-/*   Updated: 2022/08/03 10:41:25 by ykot             ###   ########.fr       */
+/*   Updated: 2022/08/04 22:22:55 by ykot             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem-in.h"
-
+/*
 void    print_queue(t_list **queue, int *size)
 {
     for (int a = 0; a < *size;a++)
@@ -31,23 +31,15 @@ void    print_moving(t_list *moving_ants)
     }
     printf("\n");
 }
-
-static void    ant_push(t_ant  *ant, t_list **queue)
-{
-    t_list  *new;
-
-    new = ft_lstnew(ant, sizeof(t_ant));
-    if (new == NULL)
-        return ; //error
-    ft_lstappend(queue, new);
-}
-
-static  int *get_numrooms(t_list **paths, int size)
+*/
+static int  *get_numrooms(t_list **paths, int size)
 {
     int     *rooms;
     int     i;
     
-    rooms = (int *)ft_memalloc(sizeof(int) * size);
+    rooms = (int *)ft_memalloc((size_t)(sizeof(int) * size));
+    if (rooms == NULL)
+        return (NULL);
     i = 0;
     while (i < size)
     {
@@ -57,37 +49,35 @@ static  int *get_numrooms(t_list **paths, int size)
     return (rooms);
 }
 
-t_list  **make_queue(int num_ants, t_list **paths, int *size)
+t_list  **make_queue(int num_ants, t_list **paths, int size)
 {
     t_list  **queue;
     int     *rooms;
-    int     n_i;
     int     j;
 
-    *size = ft_lstsize((t_list *)paths);
-    queue = (t_list **)ft_memalloc(sizeof(t_list *) * *size);
-    rooms = get_numrooms(paths, *size);
-    n_i = 0;
+    queue = (t_list **)ft_memalloc(sizeof(t_list *) * size);
+    rooms = get_numrooms(paths, size);
     j = 0;
-    while (++n_i <= num_ants)
+    while (num_ants--)
     {
-        if (rooms[j] + (int)ft_lstsize(queue[j]) > rooms[j + 1] && j + 1 != *size)
+        if (j + 1 != size && rooms[j] + (int)(ft_lstsize(queue[j])) > rooms[j + 1])
         {
             j++;
-            ant_push(new_ant(n_i, queue[j]), &queue[j]);
+            ant_push(paths[j], &queue[j]);
         }
         else
         {
             j = 0;
-            ant_push(new_ant(n_i, queue[j]), &queue[j]);
+            ant_push(paths[j], &queue[j]);
         }
     }
+    free(rooms);
     return (queue);
 }
 
-static void del(void *content, size_t size)
+static void    del(void  *content, size_t size)
 {
-    ft_memdel(&content);
+    free(content);
     size++;
 }
 
@@ -103,8 +93,12 @@ static void    move_all_ants(t_list **moving_ants)
     {
         ant = (t_ant *)iter->content;
         print_ant(*ant);
-        move_ant(&ant);
-        if (ant == NULL)
+        if (iter->next == NULL)
+            printf("\n");
+        else
+            printf(" ");
+        move_ant(ant);
+        if (ant->pathptr == NULL)
         {
             iter = iter->next;
             ft_lstdelelem(moving_ants, i, del);
@@ -115,55 +109,28 @@ static void    move_all_ants(t_list **moving_ants)
     }
 }
 
-static void   ant_pop(t_list ***queue, t_list **moving_ants, int *size)
-{
-    t_list  *elem;
-  //  t_list  *prev;
-    int i;
-    
-    i = 0;
-    while (i < *size)
-    {
-        //prev = queue[i];
-        elem = (*queue)[i];
-        elem->next = NULL;
-        ft_lstappend(moving_ants, elem);
-        /*
-        elem = ft_lstnew(iter->content, iter->content_size);
-        
-        iter = iter->next;
-        */
-        
-        ft_lstdelelem(&queue[i][0], 0, del);
-        
-        if ((*queue)[i] == NULL)
-        {
-            ft_lstdelelem((t_list **)queue, i, del);
-            *size -= 1;
-        }
-        print_queue(*queue, size);
-        print_moving(*moving_ants);
-        printf("------------------\n");
-        i++;
-    }
-}
-
 void    send_ants(int num_ants, t_list **paths)
 {
     t_list  **queue;
     t_list  *moving_ants;
     int     size;
+    int     cur_ant_num;
     
     moving_ants = NULL;
-    size = 0;
-    queue = make_queue(num_ants, paths, &size);
-    
-    print_queue(queue, &size);
-
-    ant_pop(&queue, &moving_ants, &size);
-    while (queue || moving_ants)
+    cur_ant_num = 1;
+    size = ft_lstsize((t_list *)paths);
+    queue = make_queue(num_ants, paths, size);
+    ant_pop(&queue, &moving_ants, size, &cur_ant_num);
+    while (moving_ants)
     {
         move_all_ants(&moving_ants);
-        ant_pop(&queue, &moving_ants, &size);
+        ant_pop(&queue, &moving_ants, size, &cur_ant_num);
     }
+    free(queue);
+    while (size)
+    {
+        ft_lstdel(&(paths[--size]), del);
+        free(paths[size]);
+    }
+    free(paths);
 }
