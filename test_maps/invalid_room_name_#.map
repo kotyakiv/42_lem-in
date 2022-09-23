@@ -1,0 +1,11 @@
+3
+##start
+a 1 0
+##end
+b 5 0
+#if there are two integers following, it is a room name
+#this room starts with # WRONG  (is this a valid comment or wrong room name :D)
+#3 13 0
+#this is gonna be tricky!
+a-#3
+#3-a

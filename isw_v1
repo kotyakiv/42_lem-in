@@ -1,0 +1,102 @@
+19
+##start
+##end
+s-a
+s-b
+s-c
+a-d
+b-f
+c-g
+c-h
+d-e
+e-i
+f-i
+f-j
+g-j
+g-h
+h-k
+i-l
+j-m
+k-n
+l-end
+m-end
+n-o
+o-end
+---
+
+s 0 0
+end 1 1
+a 2 2
+b 3 3
+c 4 4
+d 5 5
+e 6 6
+f 7 7
+g 8 8
+h 9 9
+i 10 10
+j 16 16
+k 11 11
+l 12 12
+m 13 13
+n 14 14
+o 15 15
+set 0:
+Number of lines to print: 23
+c > g > j > m > end >  -path_len: 5- 
+
+set 1:
+Number of lines to print: 14
+c > g > j > m > end >  -path_len: 5- 
+
+b > f > i > l > end >  -path_len: 5- 
+
+set 2:
+Number of lines to print: 12
+b > f > j > m > end >  -path_len: 5- 
+
+a > d > e > i > l > end >  -path_len: 6- 
+
+c > g > h > k > n > o > end >  -path_len: 7- 
+
+L1-b L2-a L3-c
+L1-f L2-d L3-g L4-b L5-a L6-c
+L1-j L2-e L3-h L4-f L5-d L6-g L7-b L8-a L9-c
+L1-m L2-i L3-k L4-j L5-e L6-h L7-f L8-d L9-g L10-b L11-a L12-c
+L1-end L2-l L3-n L4-m L5-i L6-k L7-j L8-e L9-h L10-f L11-d L12-g L13-b L14-a L15-c
+L2-end L3-o L4-end L5-l L6-n L7-m L8-i L9-k L10-j L11-e L12-h L13-f L14-d L15-g L16-b L17-a
+L3-end L5-end L6-o L7-end L8-l L9-n L10-m L11-i L12-k L13-j L14-e L15-h L16-f L17-d L18-b
+L6-end L8-end L9-o L10-end L11-l L12-n L13-m L14-i L15-k L16-j L17-e L18-f L19-b
+L9-end L11-end L12-o L13-end L14-l L15-n L16-m L17-i L18-j L19-f
+L12-end L14-end L15-o L16-end L17-l L18-m L19-j
+L15-end L17-end L18-end L19-m
+L19-end
+set 0:
+Number of lines to print: 23
+b > f > j > m > end >  -path_len: 5- 
+
+set 1:
+Number of lines to print: 14
+b > f > j > m > end >  -path_len: 5- 
+
+c > h > k > n > o > end >  -path_len: 6- 
+
+set 2:
+Number of lines to print: 11
+b > f > j > m > end >  -path_len: 5- 
+
+c > h > k > n > o > end >  -path_len: 6- 
+
+a > d > e > i > l > end >  -path_len: 6- 
+
+L1-b L2-c L3-a
+L1-f L2-h L3-d L4-b L5-c L6-a
+L1-j L2-k L3-e L4-f L5-h L6-d L7-b L8-c L9-a
+L1-m L2-n L3-i L4-j L5-k L6-e L7-f L8-h L9-d L10-b L11-c L12-a
+L1-end L2-o L3-l L4-m L5-n L6-i L7-j L8-k L9-e L10-f L11-h L12-d L13-b L14-c L15-a
+L2-end L3-end L4-end L5-o L6-l L7-m L8-n L9-i L10-j L11-k L12-e L13-f L14-h L15-d L16-b L17-c L18-a
+L5-end L6-end L7-end L8-o L9-l L10-m L11-n L12-i L13-j L14-k L15-e L16-f L17-h L18-d L19-b
+L8-end L9-end L10-end L11-o L12-l L13-m L14-n L15-i L16-j L17-k L18-e L19-f
+L11-end L12-end L13-end L14-o L15-l L16-m L17-n L18-i L19-j
+L14-end L15-end L16-end L17-o L18-l L19-m
+L17-end L18-end L19-end
