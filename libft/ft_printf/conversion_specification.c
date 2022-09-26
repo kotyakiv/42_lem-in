@@ -6,7 +6,7 @@
 /*   By: ykot <ykot@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 15:51:16 by ykot              #+#    #+#             */
-/*   Updated: 2022/09/09 12:18:37 by ykot             ###   ########.fr       */
+/*   Updated: 2022/09/25 15:19:31 by ykot             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ static int	max_wid_prec(t_flags *flag)
 
 int	conv_spec(const char *str, int *i, t_flags *flag, va_list *ap)
 {
+	flag->precision = -1;
 	read_flags(str, i, flag);
 	if (str[*i] == '*')
 		read_star(i, flag, ap, 0);

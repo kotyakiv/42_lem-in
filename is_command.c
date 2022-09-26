@@ -6,7 +6,7 @@
 /*   By: ykot <ykot@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 10:49:49 by bkandemi          #+#    #+#             */
-/*   Updated: 2022/09/22 23:30:33 by ykot             ###   ########.fr       */
+/*   Updated: 2022/09/25 20:25:57 by ykot             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,13 @@ int	is_command(t_farm *farm, char **line)
 	if (ft_strequ("##start", *line))
 		start_flag = 1;
 	ft_strdel(line);
+	farm->flag.read_lines++;
 	if (get_next_line(0, line) != 1)
 		error_free_split_line(farm, NULL, line, "Fail to read a line");
+	if (ft_strlen(*line) == 0 && enough_data(farm, line))
+		err_empty_line(farm);
 	get_command(farm, line, start_flag);
 	save_input(farm, line);
+	farm->flag.read_lines--;
 	return (1);
 }

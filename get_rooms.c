@@ -6,7 +6,7 @@
 /*   By: ykot <ykot@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 10:00:16 by bkandemi          #+#    #+#             */
-/*   Updated: 2022/09/23 11:42:39 by ykot             ###   ########.fr       */
+/*   Updated: 2022/09/24 23:23:14 by ykot             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,27 +19,41 @@ static int	is_room_name_valid(char *line)
 	return (TRUE);
 }
 
+static int is_room_exist(t_farm *farm, char *str)
+{
+	t_dblist *temp;
+
+	temp = farm->rooms.head;
+	while (temp)
+	{
+		if (ft_strequ(str, ((t_room *)temp->content)->name))
+			return (1);
+		temp = temp->next;
+	}
+	return (0);
+}
+
 char	**get_room_lines(char **line, t_farm *farm)
 {
 	char	**str;
 
 	if (ft_strlen(*line) == 0)
-		return (NULL);
+		error_free_split_line(farm, NULL, line, "Empty line");
 	str = ft_strsplit(*line, ' ');
 	if (str == NULL)
 		return (NULL);
 	if (!is_room_name_valid(str[0]))
 		error_free_split_line(farm, NULL, line, "Room begins with L");
 	if ((check_int(str[0]) && str[1] == NULL))
-		error_free_split_line(farm, NULL, line, "Double ant number");
+		error_free_split_line(farm, NULL, line, "No coordinates or double ant number");
 	if (!(check_int(str[1]) && check_int(str[2]) && !str[3]))
 	{
-		if (str[3])
+		if (str[1] != NULL|| str[2] != NULL)
 			error_free_split_line(farm, NULL, line, "Characters after coordinates");
-		if (check_int(str[0]) && str[1] == NULL)
-			error_free_split_line(farm, NULL, line, "Double ant number");
-		error_free_split_line(farm, NULL, line, "Coordinates are not integers");
+		error_free_split_line(farm, NULL, line, "There are no coordeinates or not integers");
 	}
+	if (is_room_exist(farm, str[0]))
+		error_free_split_line(farm, NULL, line, "Duplicate room");
 	return (str);
 }
 
@@ -107,7 +121,6 @@ t_node	*create_node(char **str, int in_out)  //if 1 in, if 0 out, start or end 2
 		node->name = ft_strjoin(str[0], "_out");
 	else
 		node->name = ft_strdup(str[0]);
-	//printf("node name %s\n", node->name);
 	//free_split(&str);
 	return (node);
 }

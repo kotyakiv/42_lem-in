@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ant_oop.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkandemi <bkandemi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: ykot <ykot@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 15:57:05 by ykot              #+#    #+#             */
-/*   Updated: 2022/08/16 11:49:50 by bkandemi         ###   ########.fr       */
+/*   Updated: 2022/09/24 10:09:09 by ykot             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,28 @@ void	move_ant(t_ant *ant)
 
 void	print_ant(t_ant ant)
 {
-	printf("L%d-%s", ant.name, (char *)ant.pathptr->content);
+	ft_putchar('L');
+	ft_putnbr(ant.name);
+	ft_putchar('-');
+	ft_putstr((char *)(ant.pathptr->content));
 }
 
-void	ant_push(t_list *path_ptr, t_list **queue)
+int	ant_push(t_list *path_ptr, t_list **queue)
 {
 	t_list	*new;
 	t_ant	*ant;
 
 	ant = new_ant(path_ptr);
 	if (ant == NULL)
-		return ; //error
+		return (1);
 	new = lstnew_pointer((void *)ant);
 	if (new == NULL)
-		return ; //error
+	{
+		free(ant);
+		return (1);
+	}
 	ft_lstappend(queue, new);
+	return (0);
 }
 
 void   ant_pop(t_list ***queue, t_list **moving_ants, int size, int *cur_ant_num)
