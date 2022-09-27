@@ -7,7 +7,7 @@ from sys import argv
 def update(frame):
     global colors, edge_colors, width, lines, length, i, pos, start, end
     fig.clear()
-    if i >= length - 2:
+    if i >= length - 1:
         nx.draw_kamada_kawai(g, with_labels=True, font_color='white', edge_color=edge_colors,
                width=list(weights), node_size=50)
         fig.set_facecolor("#00000F")
@@ -103,6 +103,6 @@ length = len(lines)
 i = 0
 
 # animate moving ants
-anim = matplotlib.animation.FuncAnimation(fig, update, frames=200, interval=1000, repeat=False)
+anim = matplotlib.animation.FuncAnimation(fig, update, frames=200, interval=1000, repeat=True)
 
 plt.show()

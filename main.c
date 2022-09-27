@@ -6,7 +6,7 @@
 /*   By: ykot <ykot@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 13:22:20 by ykot              #+#    #+#             */
-/*   Updated: 2022/09/25 19:59:05 by ykot             ###   ########.fr       */
+/*   Updated: 2022/09/27 14:00:48 by ykot             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@ int	main(int argc, char **argv)
 	farm.option2 = get_paths(&farm, 2);
 	find_the_best_paths_and_send_ants(&farm);
 	free_farm(&farm);
-	//system("leaks lem-in >> leaks.txt"); //do not run this with make debug or with valgrind, if you do so, first call make fclean and call make re
+	//system("leaks lem-in"); //do not run this with make debug or with valgrind, if you do so, first call make fclean and call make re
 	return (0);
 }

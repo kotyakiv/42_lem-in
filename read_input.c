@@ -6,7 +6,7 @@
 /*   By: ykot <ykot@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 13:25:04 by ykot              #+#    #+#             */
-/*   Updated: 2022/09/25 20:39:23 by ykot             ###   ########.fr       */
+/*   Updated: 2022/09/27 14:04:30 by ykot             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ int	get_rooms_links(t_farm *farm, char *line)
 
 int	enough_data(t_farm *farm, char **line)
 {
-	if (farm->start && farm->end && farm->rooms.head)
+	if (farm->start && farm->end && farm->rooms.head && farm->flag.rooms_done)
 	{
 		ft_dynlstdelelem(&farm->input_lines, farm->input_lines.size - 1, del_dblfn);
 		ft_strdel(line);

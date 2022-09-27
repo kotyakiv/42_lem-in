@@ -6,7 +6,7 @@
 /*   By: ykot <ykot@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:52:36 by bkandemi          #+#    #+#             */
-/*   Updated: 2022/09/26 10:40:48 by ykot             ###   ########.fr       */
+/*   Updated: 2022/09/26 17:42:05 by ykot             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ static int	when_to_stop(int *min_num_lines, t_list **set_i,
 	if (queue == NULL)
 		error(farm, "Memory allocation");
 	num_lines = count_printed_lines(farm->num_ants, queue, index);
-	printf("Min\t%d\tCur\t%d\n", *min_num_lines, num_lines);
-	print_paths(farm, set_i, index);
+	//printf("Min\t%d\tCur\t%d\n", *min_num_lines, num_lines);
+	//print_paths(farm, set_i, index);
 	if (num_lines > *min_num_lines)
 	{
 		free(queue);
