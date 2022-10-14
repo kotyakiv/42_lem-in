@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dlstdel.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkandemi <bkandemi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: ykot <ykot@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 00:06:25 by ykot              #+#    #+#             */
-/*   Updated: 2022/09/20 12:52:01 by bkandemi         ###   ########.fr       */
+/*   Updated: 2022/10/06 15:57:09 by ykot             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	ft_dblstdel(t_dynlist *alst, void (*del)(void *))
 {
 	t_dblist	*next;
-	t_dblist *temp;
-	
+	t_dblist	*temp;
+
 	if (alst->size == 0)
 		return ;
 	temp = alst->head;

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ykot <ykot@student.42.fr>                  +#+  +:+       +#+         #
+#    By: bkandemi <bkandemi@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 23:20:01 by ykot              #+#    #+#              #
-#    Updated: 2022/08/27 09:09:55 by ykot             ###   ########.fr        #
+#    Updated: 2022/10/06 17:01:38 by bkandemi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,7 +89,9 @@ SRC = 		ft_atoi.c \
 			ft_dynlstappend.c \
 			ft_dynlstdelelem.c \
 			ft_dynlstelem.c \
-			ft_dlstnew_pointer.c
+			ft_dlstnew_pointer.c\
+			ft_lstnew_pointer.c\
+			ft_char_count.c
 
 SRC_PF = 	ft_printf.c \
 			print_conversion.c \
