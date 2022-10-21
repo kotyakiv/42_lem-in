@@ -6,7 +6,7 @@
 /*   By: ykot <ykot@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 13:20:47 by ykot              #+#    #+#             */
-/*   Updated: 2022/10/14 13:39:28 by ykot             ###   ########.fr       */
+/*   Updated: 2022/10/21 13:21:58 by ykot             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@
 # define COORD " --coord\tto use coordinates, random nodes position by default\n"
 # define VIS_SLOW " --slow\t\tslow animation of moving ants\n"
 # define VIS_FAST " --fast\t\tfast animation of moving ants\n\n"
-# define VIS_BIG_MAP " --big-map\tno labels and small size of nodes"
+# define VIS_BIG_MAP " --big\tno labels and small size of nodes"
 # define VIS_INFO "Visualizer uses networkx, matplotlib, numpy, scipy. \
 Be sure that you have these packages installed\n\n \
 pip3 install networkx matplotlib numpy scipy\n"

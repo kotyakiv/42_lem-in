@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bkandemi <bkandemi@student.hive.fi>        +#+  +:+       +#+         #
+#    By: ykot <ykot@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/24 17:18:57 by bkandemi          #+#    #+#              #
-#    Updated: 2022/10/10 14:12:42 by bkandemi         ###   ########.fr        #
+#    Updated: 2022/10/21 13:22:54 by ykot             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ O_FILES = $(C_FILES:.c=.o)
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra
 
 SRC_PATH = src/
 
