@@ -4,8 +4,6 @@ In this project, we are given an ant farm composed of rooms and links, and our t
 
 With this project, we gained hands-on experience in graph theory, maximum flow algorithms, adjacency list representation of graphs, and implementing hash tables in the C programming language.
 
-For detailed instructions, refer to [the subject](subject.pdf).
-
 <p align="center">
   <img src="readme_visuals/sample_map.gif" alt="animated" />
 </p>
@@ -124,14 +122,6 @@ test_maps/error/invalid_end.map:
 Error: No end
 ```
 
-## Installation
-```
-git clone git@github.com:Bengissimo/Lem-in.git
-```
-```
-make
-```
-
 ## Usage
 ```
 Usage: ./lem-in [OPTION] < valid_map
@@ -176,5 +166,6 @@ cd test/
 ./leaks.sh
 ```
 
-
-
+## Authors
+[Bengissimo](https://github.com/Bengissimo)  
+[kotyakiv](https://github.com/kotyakiv)
